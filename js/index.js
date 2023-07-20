@@ -98,7 +98,67 @@ function renderButtons() {
 
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
-  
+    let listaUl = document.querySelector('.price ul');
+    let liNode = document.querySelectorAll('.price li');
+
+  if (liNode.length === 0){
+     let liNode2 = document.createElement('li');
+     liNode.append(liNode2)
+  } 
+
+
+
+
+    liNode.forEach((element) => {
+    if (state.pepperoni === false && element.innerText === '$1 pepperoni'){
+      element.remove();
+    
+    } else if (state.pepperoni === true && !listaUl.innerText.includes('$1 pepperoni')) {
+      let liNode = document.createElement('li');
+      liNode.innerText = `$1 pepperoni`;
+
+      return listaUl.append(liNode);
+    }
+    
+    if (state.mushrooms === false && element.innerText === '$1 mushrooms'){
+      element.remove();
+    } else if (state.mushrooms === true && !listaUl.innerText.includes('$1 mushrooms')) {
+      let liNode = document.createElement('li');
+      liNode.innerText = `$1 mushrooms`;
+
+      return listaUl.append(liNode);
+    }
+    
+    if (state.greenPeppers === false && element.innerText === '$1 green peppers'){
+      element.remove();
+    
+    } else if (state.greenPeppers === true && !listaUl.innerText.includes('$1 green peppers')) {
+      let liNode = document.createElement('li');
+      liNode.innerText = `$1 green peppers`;
+
+      return listaUl.append(liNode);
+    }
+    
+    if (state.whiteSauce === false && element.innerText === '$3 white sauce'){
+      element.remove();
+    
+    } else if (state.whiteSauce === true && !listaUl.innerText.includes('$3 white sauce')) {
+      let liNode = document.createElement('li');
+      liNode.innerText = `$3 white sauce`;
+
+      return listaUl.append(liNode);
+    }
+    
+    if (state.glutenFreeCrust === false && element.innerText === '$5 gluten-free crust'){
+      element.remove();
+    
+    } else if (state.glutenFreeCrust === true && !listaUl.innerText.includes('$5 gluten-free crust')) {
+      let liNode = document.createElement('li');
+      liNode.innerText = `$5 gluten-free crust`;
+
+      return listaUl.append(liNode);
+    }
+  });
 }
 
 renderEverything();
