@@ -106,9 +106,6 @@ function renderPrice() {
      liNode.append(liNode2)
   } 
 
-
-
-
     liNode.forEach((element) => {
     if (state.pepperoni === false && element.innerText === '$1 pepperoni'){
       element.remove();
